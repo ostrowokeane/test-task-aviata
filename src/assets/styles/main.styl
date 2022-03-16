@@ -1,0 +1,386 @@
+@import './mixins.styl';
+@import './animations.styl';
+@import './components.styl';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration inherit
+  color inherit
+}
+
+link() {
+  font-weight: 400;
+  font-size: 12rem;
+  line-height: 16rem;
+  color: var(--blue);
+  border-bottom 1rem dashed #7284E4;
+  transition border-bottom-color .15s linear;
+  cursor pointer;
+  &:hover {
+    border-bottom-color transparent
+  }
+}
+.link {
+  link();
+}
+button {
+  background: transparent
+  border 0 solid
+  cursor pointer
+  font-size inherit
+}
+:root {
+  --red #ff5f50
+  --green #55bb06
+  --orange #FF9900
+  --blue #7284E4
+  --grey #707276
+  --black #202123
+}
+.red {
+  color var(--red)
+}
+.green {
+  color var(--green)
+}
+.orange {
+  color var(--orange)
+}
+.blue {
+  color var(--blue)
+}
+.grey {
+  color var(--grey)
+}
+.black {
+  color var(--black)
+}
+
+html {
+  +mobile() {
+    font-size calc(100vw / 320)
+  }
+  +desktop() {
+    font-size: 1px;
+  }
+}
+body {
+  background: #E1E1E1;
+  font-weight: 400;
+  font-size: 12rem;
+  color: var(--black)
+}
+.page {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12rem
+  text-align left
+  padding-top: 50rem
+  +desktop() {
+    ai-start();
+    justify-content center
+  }
+  &__filters {
+    padding 10rem
+    +desktop() {
+      width 260rem
+    }
+  }
+  &__results {
+    padding 10rem
+    +desktop() {
+      width 900rem
+    }
+  }
+}
+
+.filters {
+  &__container {
+    text-align left
+    background: #F5F5F5;
+    border-radius: 4rem;
+    margin-bottom: 12rem;
+    padding: 12rem;
+  }
+  &__header {
+    ai-center();
+    margin-bottom: 12rem
+  }
+  &__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14rem;
+    line-height: 20rem;
+    color: #202123;
+  }
+  &__ico-reset {
+    margin-left: auto;
+  }
+  &__body {
+    mx -12rem
+  }
+}
+.results {
+}
+.flight {
+  background: #FFFFFF;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.15);
+  border-radius: 4rem;
+  margin-bottom 12rem
+  text-align left
+  overflow: hidden;
+  +desktop() {
+    display flex;
+    height 168rem
+  }
+  &__left {
+    +mobile() {
+      padding 18px 20px 28px
+    }
+    +desktop() {
+      padding 40px 40px 18px
+    }
+  }
+  &__info-desktop {
+    ai-center();
+    +mobile() {
+      display none
+    }
+  }
+  &__info {
+    &-details {
+      link();
+    }
+    &-conditions {
+      link();
+      +desktop() {
+        margin-left: 23rem;
+      }
+    }
+    &-returnable {
+      font-family: 'Arial', sans-serif;
+      font-weight: 400;
+      font-size: 12rem;
+      line-height: 14rem;
+      color: #707276;
+      ai-center();
+      +desktop() {
+        margin-left: 46rem;
+      }
+    }
+    &-returnable-ico {
+      background url("~@/assets/icons/icon-non-refundeble.svg") center no-repeat
+      background-size 16rem
+      wh 16rem
+      margin-right: 7rem
+    }
+  }
+  &__right {
+    background: #F5F5F5
+    flex: 0 1 auto
+    +mobile() {
+      padding 12rem 20rem 18rem
+    }
+    +desktop() {
+      width: 240rem
+      padding 12rem 20rem 18rem
+      margin-left: auto;
+    }
+  }
+  &__price {
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 24rem;
+    line-height: 28rem;
+    text-align: center;
+    +desktop() {
+      margin-bottom: 13rem
+    }
+    +mobile() {
+      margin-bottom: 14rem
+    }
+  }
+  &__select-btn {
+    background: #55BB06;
+    border-radius: 4rem;
+    width: 200rem;
+    display block
+    mx auto
+
+    font-weight: 700;
+    font-size: 18rem;
+    line-height: 25rem;
+    text-align: center;
+    color: #FFF;
+    padding: 7rem 12.5rem 8rem;
+    +desktop() {
+      margin-bottom: 8rem
+    }
+    +mobile() {
+      margin-bottom: 14rem
+    }
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 12rem;
+    line-height: 16rem;
+    text-align: center;
+    color: #707276;
+    +desktop() {
+      margin-bottom: 12rem
+    }
+    +mobile() {
+    }
+  }
+  &__last-row {
+    +desktop() {
+      jc-between();
+    }
+    +mobile() {
+      display none;
+    }
+  }
+  &__luggage {
+    text-align: center;
+    color: #202123;
+    &-add {
+      background: #EAF0FA;
+      border-radius: 2rem;
+      padding: 3rem 8rem;
+
+      font-weight: 600;
+      text-align: center;
+      color: #5763B3;
+    }
+  }
+}
+.flight-info {
+  display: grid
+  +desktop() {
+    //grid-template-columns: 126rem+13 62rem+28 168rem+33 62rem+28;
+    grid-template-columns: 100rem 62rem+28 168rem+33 62rem+28;
+    margin-bottom: 42rem;
+  }
+  +mobile() {
+    grid-template-columns: 62rem+28 1fr 62rem+28;
+    grid-row-gap 20rem
+  }
+  &__company {
+    font-weight: 600;
+    font-size: 14rem;
+    line-height: 19rem;
+    color: #202123;
+    ai-center();
+    +mobile() {
+      grid-column: 1 / 1;
+      grid-row: 1 / 1;
+    }
+    &-img  {
+      wh 40rem
+      margin-right: 10rem
+    }
+  }
+  &__time-start {
+    +mobile() {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+  &__time-end {
+    +mobile() {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      text-align: right;
+    }
+  }
+  &__time-start, &__time-end {
+    &--top  {
+      font-weight: 400;
+      font-size: 12rem;
+      line-height: 16rem;
+      color: #202123;
+    }
+    &--bottom  {
+      font-weight: 600;
+      font-size: 24rem;
+      line-height: 33rem;
+      color: #202123;
+    }
+  }
+
+  &__graph {
+    +mobile() {
+      grid-row: 3 / 3;
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__luggage-info  {
+    +mobile() {
+      grid-column: 3 / 3;
+      grid-row: 1 / 2;
+      text-align: right;
+      ai-center();
+      justify-content flex-end
+    }
+    +desktop() {
+      display none;
+    }
+  }
+}
+
+.flight-info-graph {
+  &__wrapper {
+    +desktop() {
+      width: 170rem
+    }
+    +mobile() {
+
+    }
+  }
+  &__row-1 {
+    jc-between();
+    margin-bottom: 3.5rem
+  }
+  &__from, &__to  {
+    font-weight: 400;
+    font-size: 10rem;
+    line-height: 12rem;
+    color: #B9B9B9;
+  }
+  &__from  {
+    text-align left
+  }
+  &__to  {
+    text-align right
+  }
+  &__time  {
+    font-weight: 400;
+    font-size: 12rem;
+    line-height: 18rem;
+    text-align: center;
+    color: #202123;
+
+  }
+
+  &__line {
+    border-bottom: 1px solid #B9B9B9;
+    position relative
+    margin-bottom: 4.5rem
+    display flex
+    justify-content space-between
+    &-dot {
+      wh 5rem
+      border 1rem solid #B9B9B9
+      background #fff
+      margin-bottom: -2.5rem
+      border-radius 50%
+    }
+  }
+  &__row-2  {
+    text-align: center;
+    color var(--orange)
+    line-height: 16rem;
+  }
+}

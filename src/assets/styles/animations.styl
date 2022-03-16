@@ -1,0 +1,21 @@
+.fade-enter-active {
+  animation: fade-in 0.2s linear;
+}
+.fade-leave-active {
+  animation: fade-in 0.2s reverse linear;
+}
+@keyframes fade-in {
+  0% {
+    transform: scale(.5);
+    //opacity 0
+    height: 0
+    margin 0
+  }
+  10% {
+    opacity 0
+  }
+  100% {
+    transform: scale(1);
+    opacity 1
+  }
+}

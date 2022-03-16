@@ -1,0 +1,108 @@
+.checkbox {
+  user-select: none;
+  ai-center();
+  padding: 12rem
+  &:hover {
+    background #EBEBEB
+  }
+  &:before {
+    position: absolute;
+    left: -99999rem
+    opacity 0
+    content url("~@/assets/icons/checbox_hover.svg") url("~@/assets/icons/checbox_active.svg") url("~@/assets/icons/checbox_indeterminate.svg")
+  }
+  &__control {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &__content {
+    white-space nowrap
+    padding-left 12rem;
+  }
+  &__ico {
+    display block
+    wh: 12rem;
+    background: center no-repeat
+    background-size: 12rem
+    background-image url("~@/assets/icons/checbox_normal.svg")
+    ^[0]:hover & {
+      background-image url("~@/assets/icons/checbox_hover.svg")
+    }
+    ^[0]__control:checked + & {
+      background-image url("~@/assets/icons/checbox_active.svg")
+    }
+    &--minus {
+      background-image url("~@/assets/icons/checbox_indeterminate.svg") !important
+    }
+  }
+}
+.ico-reset {
+  wh 20rem
+  background transparent center no-repeat
+  background-size 20rem
+  background-image url("~@/assets/icons/icon-close-filter.svg")
+  border 0
+
+  &:hover {
+    background-image url("~@/assets/icons/icon-close-filter-hover.svg")
+  }
+  &:before {
+    content: url("~@/assets/icons/icon-close-filter.svg") url("~@/assets/icons/icon-close-filter-hover.svg")
+    display block
+    opacity 0;
+    position absolute
+    left: -999999px;
+  }
+  &__wrapper {
+    position relative
+  }
+  &__tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translatex(-50%) translatey(-10rem);
+
+    width 122rem
+    height 41rem
+    center();
+    background #fff;
+    border 1rem solid #E1E1E1
+    border-radius: 6rem;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12rem;
+    color: #202123;
+
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.05)) drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.1));
+
+    opacity 0;
+
+    +max(1000px) {
+      left: auto;
+      right: 0;
+      transform: translatey(-50%) translatex(-35rem);
+      top: 50%;
+    }
+
+    ^[0]:hover + & {
+      transition opacity .4s .1s
+      opacity 1
+    }
+    &:before {
+      content: '';
+      position absolute
+      top: 100%;
+      left: 50%;
+      background #fff
+      wh 14rem
+      transform translatex(-50%) translatey(-50%) rotate(45deg);
+      +max(1000px) {
+        top: 50%;
+        left: 100%;
+      }
+    }
+
+  }
+}
